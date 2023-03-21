@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication1.EF.Restaurant_Table>
+
+@{
+    ViewBag.Title = "CollectRequest";
+}
+
+<h2>CollectRequest</h2>
+<table class="table table-bordered">
+    <tr>
+        
+
+        <th>
+            Restaurant Name
+        </th>
+        <th>
+           Address
+        </th>
+        <th>
+            Contact
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Restaurant_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+
+               
+                @Html.ActionLink("Pick The Food", "Delete", new { id = item.Restaurant_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
